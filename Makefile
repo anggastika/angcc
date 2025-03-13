@@ -9,7 +9,7 @@ TESTS=$(TEST_SRCS:.c=.exe)
 angcc: $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
-$(OBJS): weicc.h
+$(OBJS): angcc.h
 
 test/%.exe: angcc test/%.c
 	$(CC) -o- -E -P -C test/$*.c | ./angcc -o test/$*.s -
